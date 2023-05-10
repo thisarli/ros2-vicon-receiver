@@ -4,7 +4,7 @@ Publisher::Publisher(std::string topic_name, rclcpp::Node* node)
 {
     position_publisher_ = node->create_publisher<vicon_receiver::msg::Position>(topic_name, 10);
     is_ready = true;
-    std::cout << "Publisher is ready working for topic: " << topic_name << std::endl;
+    std::cout << "Publisher is ready for topic: " << topic_name << std::endl;
 }
 
 void Publisher::publish(PositionStruct p)
@@ -23,4 +23,5 @@ void Publisher::publish(PositionStruct p)
     msg->translation_type = p.translation_type;
     // std::cout << "Published message: x_trans=" << msg->x_trans << ", y_trans=" << msg->y_trans << ", z_trans=" << msg->z_trans << std::endl;
     position_publisher_->publish(*msg);
+    std::cout << "position_publisher has published" << std::endl;
 }
