@@ -20,5 +20,6 @@ void Publisher::publish(PositionStruct p)
     msg->segment_name = p.segment_name;
     msg->frame_number = p.frame_number;
     msg->translation_type = p.translation_type;
+    std::cout << "Published message: " << msg->to_string() << std::endl;
     position_publisher_->publish(*msg);
 }
