@@ -65,6 +65,7 @@ bool Communicator::disconnect()
     vicon_client.Disconnect();
     msg = "Successfully disconnected";
     cout << msg << endl;
+    cout << "Check print at exit" << endl;
     if (!vicon_client.IsConnected().Connected)
         return true;
     return false;
@@ -72,6 +73,7 @@ bool Communicator::disconnect()
 
 void Communicator::get_frame()
 {
+    cout << "Entered get_frame" << endl;
     vicon_client.GetFrame();
     Output_GetFrameNumber frame_number = vicon_client.GetFrameNumber();
 
