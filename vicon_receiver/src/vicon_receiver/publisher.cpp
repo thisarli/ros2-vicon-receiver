@@ -21,7 +21,7 @@ void Publisher::publish(PositionStruct p)
     msg->segment_name = p.segment_name;
     msg->frame_number = p.frame_number;
     msg->translation_type = p.translation_type;
-    // std::cout << "Published message: x_trans=" << msg->x_trans << ", y_trans=" << msg->y_trans << ", z_trans=" << msg->z_trans << std::endl;
-    position_publisher_->publish(*msg);
-    std::cout << "position_publisher has published" << std::endl;
+    std::cout << "Published message: x_trans=" << msg->x_trans << ", y_trans=" << msg->y_trans << ", z_trans=" << msg->z_trans << std::endl;
+    position_publisher_->publish(*msg); // PROBLEM SEEMS TO BE HERE
+    // std::cout << "position_publisher has published" << std::endl; WORKS
 }
