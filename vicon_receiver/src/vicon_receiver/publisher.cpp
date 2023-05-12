@@ -27,6 +27,7 @@
 // }
 
 #include "vicon_receiver/publisher.hpp"
+#include "rclcpp/rclcpp.hpp"
 
 Publisher::Publisher(std::string topic_name, rclcpp::Node* node)
 {
@@ -58,6 +59,11 @@ void Publisher::publish(PositionStruct p)
     msg->frame_number = p.frame_number;
     msg->translation_type = p.translation_type;
     std::cout << "Published message: x_trans=" << msg->x_trans << ", y_trans=" << msg->y_trans << ", z_trans=" << msg->z_trans << std::endl;
+    
+    auto node = position_publisher_->get_node();
+    node->set_logger_level(rclcpp::logging::LogLevel::DEBUG);
+    RCLCPP_DEBUG(node->get_logger(), "Publisher debug ...");
+    
     position_publisher_->publish(*msg); 
 }
 
