@@ -62,7 +62,7 @@ void Publisher::publish(PositionStruct p)
     position_publisher_->publish(*msg); 
 }
 
-void Publisher::callback(const vicon_receiver::msg::Position::SharedPtr msg) const 
+void Publisher::callback(const vicon_receiver::msg::Position::SharedPtr msg) 
 {
     RCLCPP_INFO(this->get_logger(), "I heard something");
     // Process received message here
