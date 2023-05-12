@@ -73,7 +73,6 @@ public:
     // Publishes the given position in the ROS2 topic whose name is indicated in
     // the constructor.
     void publish(PositionStruct p);
-    void get_logger();
 };
 
 #endif
