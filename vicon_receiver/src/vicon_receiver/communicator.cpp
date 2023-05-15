@@ -1,4 +1,5 @@
 #include "vicon_receiver/communicator.hpp"
+#include "ros/ros.h"
 
 using namespace ViconDataStreamSDK::CPP;
 
@@ -124,7 +125,9 @@ void Communicator::get_frame()
 
                     if (pub.is_ready)
                     {
+                        std::cout << "Pub is ready" << std::endl;
                         pub.publish(current_position);
+                        ros::spinOnce()
                     }
                 }
                 else
