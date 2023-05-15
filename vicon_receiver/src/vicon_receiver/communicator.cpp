@@ -127,7 +127,7 @@ void Communicator::get_frame()
                     {
                         std::cout << "Pub is ready" << std::endl;
                         pub.publish(current_position);
-                        // rclcpp::spin_some()
+                        // rclcpp::spin(pub);
                     }
                 }
                 else
@@ -167,10 +167,11 @@ int main(int argc, char** argv)
     rclcpp::init(argc, argv);
     auto node = std::make_shared<Communicator>();
     node->connect();
-    rclcpp::spin(node);
+    // rclcpp::spin(node);
 
     while (rclcpp::ok()){
         node->get_frame();
+        rclpp:spinOnce(node);
     }
 
     node->disconnect();
