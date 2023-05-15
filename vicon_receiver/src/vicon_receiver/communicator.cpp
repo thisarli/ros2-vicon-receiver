@@ -171,7 +171,7 @@ int main(int argc, char** argv)
 
     while (rclcpp::ok()){
         node->get_frame();
-        rclpp:spin_some(node);
+        rclcpp::spinOnce(node);
     }
 
     node->disconnect();
