@@ -127,7 +127,7 @@ void Communicator::get_frame()
                     {
                         std::cout << "Pub is ready" << std::endl;
                         pub.publish(current_position);
-                        rclcpp::spin_once()
+                        rclcpp::spin_some()
                     }
                 }
                 else
